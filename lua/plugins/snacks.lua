@@ -4,10 +4,19 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-      -- animate = { enabled = true },
-      -- dim = { enabled = true },
-      gh = { enabled = true },
-      git = { enabled = true },
+      animate = { enabled = false },
+      dim = { enabled = false },
+      image = { enabled = false },
+      statuscolumn = {
+        enabled = true,
+      },
+      gh = {
+        enabled = false,
+      },
+      git = {
+        enabled = true,
+      },
+      words = { enabled = true },
       dashboard = {
         sections = {
           -- pane 1
