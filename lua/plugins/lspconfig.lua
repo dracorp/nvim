@@ -4,6 +4,9 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
+      document_highlight = {
+        enabled = false,
+      },
       servers = {
         bashls = {},
         basedpyright = {},

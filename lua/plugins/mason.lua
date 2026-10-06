@@ -24,6 +24,9 @@ return {
         "ansible-lint",
         -- jenkins, groovy
         "groovy-language-server",
+        -- lua
+        "lua-language-server",
+        "stylua",
       },
     },
   },

@@ -16,7 +16,7 @@ return {
       git = {
         enabled = true,
       },
-      words = { enabled = true },
+      -- words = { enabled = false },
       dashboard = {
         sections = {
           -- pane 1
