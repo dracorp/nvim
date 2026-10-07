@@ -4,7 +4,15 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-      animate = { enabled = false },
+      -- <leader>sn to open the noice dashboard
+      -- <leader>n to open the notifications history
+      -- g< to open Noice
+      notifier = {
+        enabled = true,
+        timeout = 5000,
+      },
+      scroll = { enabled = true },
+      animate = { enabled = true },
       dim = { enabled = false },
       image = { enabled = false },
       statuscolumn = {
@@ -18,6 +26,7 @@ return {
       },
       -- words = { enabled = false },
       dashboard = {
+        enabled = true,
         sections = {
           -- pane 1
           { section = "header" },
@@ -85,9 +94,24 @@ return {
               },
             },
           },
+          -- https://www.reddit.com/r/neovim/comments/1mvlp86/lazyvim_snacks_picker_how_to_turn_on_preview/
+          notifications = {
+            win = {
+              wo = {
+                wrap = true,
+              },
+            },
+          },
         },
       },
       keys = {
+        {
+          "<leader>sp",
+          function()
+            Snacks.notifier.show_history()
+          end,
+          desc = "Show notifs",
+        },
         {
           "<leader>gi",
           function()
