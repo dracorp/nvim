@@ -4,27 +4,33 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      bigfile = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
       -- <leader>sn to open the noice dashboard
       -- <leader>n to open the notifications history
       -- g< to open Noice
       notifier = {
         enabled = true,
         timeout = 5000,
+        top_down = false,
       },
       scroll = { enabled = true },
       animate = { enabled = true },
       dim = { enabled = false },
-      image = { enabled = false },
-      statuscolumn = {
+      image = {
         enabled = true,
+        force = true,
+        math = {
+          enabled = false,
+        },
       },
-      gh = {
-        enabled = false,
-      },
-      git = {
-        enabled = true,
-      },
-      -- words = { enabled = false },
+      statuscolumn = { enabled = true },
+      gh = { enabled = true },
+      git = { enabled = true },
+      words = { enabled = true },
       dashboard = {
         enabled = true,
         sections = {
@@ -51,7 +57,7 @@ return {
           { section = "startup" },
         },
       },
-      explorer = {},
+      explorer = { enabled = true },
       picker = {
         sources = {
           gh_issue = {
@@ -104,6 +110,24 @@ return {
             },
           },
         },
+        win = {
+          input = {
+            keys = {
+              ["<PageUp>"] = "list_scroll_up",
+              ["<PageDown>"] = "list_scroll_down",
+              ["<Home>"] = "list_top",
+              ["<End>"] = "list_bottom",
+            },
+          },
+          list = {
+            keys = {
+              ["<PageUp>"] = "list_scroll_up",
+              ["<PageDown>"] = "list_scroll_down",
+              ["<Home>"] = "list_top",
+              ["<End>"] = "list_bottom",
+            },
+          },
+        },
       },
       keys = {
         {
@@ -143,5 +167,9 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      -- Load the plugin with the provided options
+      require("snacks").setup(opts)
+    end,
   },
 }

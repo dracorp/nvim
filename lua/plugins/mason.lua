@@ -27,6 +27,9 @@ return {
         -- lua
         "lua-language-server",
         "stylua",
+        -- markdown
+        "markdownlint-cli2",
+        "markdown-toc",
       },
     },
   },
