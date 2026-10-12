@@ -36,3 +36,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.conceallevel = 0
   end,
 })
+
+-- commentstring for Brewfile
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--   pattern = "Brewfile",
+--   callback = function()
+--     vim.bo.filetype = "ruby"
+--     vim.bo.commentstring = "# %s"
+--   end,
+-- })
