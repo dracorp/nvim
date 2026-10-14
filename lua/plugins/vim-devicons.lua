@@ -1,3 +1,6 @@
 return {
-  "ryanoasis/vim-devicons",
+  {
+    --- https://github.com/ryanoasis/vim-devicons
+    "ryanoasis/vim-devicons",
+  },
 }

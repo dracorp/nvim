@@ -1,4 +1,5 @@
 return {
+  --- https://github.com/nvim-telescope/telescope.nvim
   -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",

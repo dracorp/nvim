@@ -1,7 +1,7 @@
--- ~/.config/nvim/lua/plugins/snacks.lua
 -- :checkhealth snacks
 return {
   {
+    --- https://github.com/folke/snacks.nvim
     "folke/snacks.nvim",
     opts = {
       bigfile = { enabled = true },

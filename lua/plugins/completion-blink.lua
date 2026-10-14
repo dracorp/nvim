@@ -5,22 +5,22 @@ return {
     keymap = {
       -- https://cmp.saghen.dev/configuration/keymap#presets
       preset = "super-tab", -- "default", "super-tab", "enter", "none"
-      ["<Tab>"] = {
-        "select_next",
-        "snippet_forward",
-        "fallback",
-      },
-      ["<S-Tab>"] = {
-        "select_prev",
-        "snippet_backward",
-        "fallback",
-      },
+      -- ["<Tab>"] = {
+      --   "select_next",
+      --   "snippet_forward",
+      --   "fallback",
+      -- },
+      -- ["<S-Tab>"] = {
+      --   "select_prev",
+      --   "snippet_backward",
+      --   "fallback",
+      -- },
       ["<CR>"] = { "accept", "fallback" },
     },
 
     completion = {
       ghost_text = {
-        enabled = false,
+        enabled = true,
       },
       list = {
         selection = {

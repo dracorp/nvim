@@ -1,5 +1,6 @@
 return {
   {
-    "nvim-tree/nvim-web-devicons", -- optional, but recommended
+    --- https://github.com/nvim-tree/nvim-web-devicons
+    "nvim-tree/nvim-web-devicons",
   },
 }
