@@ -1,15 +1,16 @@
 return {
+  --- https://github.com/xu-cheng/brew.vim
   "xu-cheng/brew.vim",
-  -- ft = { "brew" }, -- Opcjonalnie: ładuj wtyczkę tylko dla typu 'brew'
+  -- ft = { "brew" }, -- Optional: Load on filetype 'brew' (Brewfile)
   init = function()
-    -- 1. Upewniamy się, że pliki o nazwie Brewfile są wykrywane jako typ 'brew'
+    -- Add filetype detection for Brewfile
     vim.filetype.add({
       filename = {
         ["Brewfile"] = "brew",
       },
     })
 
-    -- 2. Ustawiamy commentstring specjalnie dla typu pliku 'brew'
+    -- set commentstring for filetype 'brew'
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "brew",
       callback = function()

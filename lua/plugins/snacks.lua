@@ -9,9 +9,6 @@ return {
       input = { enabled = true },
       quickfile = { enabled = true },
       scope = { enabled = true },
-      -- <leader>sn to open the noice dashboard
-      -- <leader>n to open the notifications history
-      -- g< to open Noice
       notifier = {
         enabled = true,
         timeout = 5000,
@@ -37,6 +34,22 @@ return {
           -- pane 1
           { section = "header" },
           { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+          {
+            icon = "󰙅 ",
+            key = "e",
+            desc = "Explorer root dir",
+            action = function()
+              Snacks.explorer({ cwd = LazyVim.root() })
+            end,
+          },
+          {
+            icon = "󰙅 ",
+            key = "E",
+            desc = "Explorer cwd dir",
+            action = function()
+              Snacks.explorer()
+            end,
+          },
           -- pane 2
           { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
           { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
@@ -129,43 +142,7 @@ return {
           },
         },
       },
-      keys = {
-        {
-          "<leader>sp",
-          function()
-            Snacks.notifier.show_history()
-          end,
-          desc = "Show notifs",
-        },
-        {
-          "<leader>gi",
-          function()
-            Snacks.picker.gh_issue()
-          end,
-          desc = "GitHub Issues (open)",
-        },
-        {
-          "<leader>gI",
-          function()
-            Snacks.picker.gh_issue({ state = "all" })
-          end,
-          desc = "GitHub Issues (all)",
-        },
-        {
-          "<leader>gp",
-          function()
-            Snacks.picker.gh_pr()
-          end,
-          desc = "GitHub Pull Requests (open)",
-        },
-        {
-          "<leader>gP",
-          function()
-            Snacks.picker.gh_pr({ state = "all" })
-          end,
-          desc = "GitHub Pull Requests (all)",
-        },
-      },
+      keys = {},
     },
     config = function(_, opts)
       -- Load the plugin with the provided options

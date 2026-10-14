@@ -1,5 +1,5 @@
 return {
-  -- add gruvbox
+  --- https://github.com/ellisonleao/gruvbox.nvim
   {
     "ellisonleao/gruvbox.nvim",
   },

@@ -1,4 +1,5 @@
 return {
+  --- https://github.com/nvim-treesitter/nvim-treesitter
   -- add more treesitter parsers
   -- {
   --   "nvim-treesitter/nvim-treesitter",

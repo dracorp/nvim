@@ -1,6 +1,7 @@
 return {
   -- add any tools you want to have installed below
   {
+    --- https://github.com/mason-org/mason.nvim
     "mason-org/mason.nvim",
     opts = {
       ensure_installed = {

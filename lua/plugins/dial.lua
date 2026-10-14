@@ -1,4 +1,5 @@
 return {
+  --- https://github.com/monaqa/dial.nvim
   "monaqa/dial.nvim",
   opts = function()
     -- you can modify opts however you want

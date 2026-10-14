@@ -1,5 +1,6 @@
 return {
   {
+    --- https://github.com/powerman/vim-plugin-AnsiEsc
     "powerman/vim-plugin-AnsiEsc",
     lazy = false,
 

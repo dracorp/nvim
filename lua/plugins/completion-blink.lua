@@ -1,4 +1,5 @@
 return {
+  --- https://github.com/saghen/blink.cmp
   "saghen/blink.cmp",
   dependencies = { "fang2hou/blink-copilot" },
   opts = {

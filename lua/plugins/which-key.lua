@@ -5,6 +5,7 @@ return {
     opts = {
       spec = {
         { "<leader>U", group = "UI my", icon = "󰙵 ", mode = "n" },
+        { "<leader>C", group = "Copilot", icon = " ", mode = "n" },
       },
     },
   },

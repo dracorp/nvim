@@ -50,6 +50,8 @@ vim.o.splitright = true -- Put new windows right of current
 vim.o.equalalways = true -- Windows are automatically made the same size after splitting
 vim.o.splitkeep = "cursor"
 vim.o.mouse = "a"
+-- with unnamedplus, clipboard will use the system clipboard for all operations
+vim.opt.clipboard = ""
 
 vim.g.lazyvim_prettier_needs_config = false
 vim.g.deprecation_warnings = true

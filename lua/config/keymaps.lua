@@ -33,21 +33,25 @@ keymap.set("n", "<C-j>", function()
   vim.diagnostic.jump({ count = 1, float = true })
 end, opts)
 
--- dashboard
-vim.keymap.set("n", "<leader>Ud", function()
-  Snacks.dashboard()
-end, { desc = "Dashboard" })
-
+-- Own UI menu, @see ../plugins/which-key.lua
 vim.api.nvim_create_user_command("Dashboard", function()
   Snacks.dashboard()
 end, { desc = "Open Snacks dashboard" })
 
-vim.keymap.set("n", "<leader>Ud", function()
+vim.keymap.set("n", "<leader>UD", function()
   Snacks.dashboard()
 end, { desc = "Dashboard" })
 
-vim.keymap.set("n", "<leader>Ue", "<cmd>LazyExtras<cr>", { desc = "Lazy Extras" })
+vim.keymap.set("n", "<leader>UE", "<cmd>LazyExtras<cr>", { desc = "Lazy Extras" })
+vim.keymap.set("n", "<leader>US", "<cmd>Lazy sync<cr>", { desc = "Lazy Extras" })
 
+vim.keymap.set("n", "<leader>Cs", "<cmd>Copilot status<cr>", { desc = "Copilot status" })
+vim.keymap.set("n", "<leader>Ct", "<cmd>Copilot panel<cr>", { desc = "Copilot panel" })
+vim.keymap.set("n", "<leader>Cm", "<cmd>Copilot model<cr>", { desc = "Copilot model" })
+
+vim.keymap.set("n", "<leader>sp", function()
+  Snacks.notifier.show_history()
+end, { desc = "Show notifs" })
 -- kubernetes
 -- ~/.config/nvim/lua/config/keymaps.lua
 -- local kube_utils_mappings = {
@@ -77,7 +81,28 @@ vim.keymap.set("n", "<leader>Ue", "<cmd>LazyExtras<cr>", { desc = "Lazy Extras" 
 -- -- Register the Kube Utils keybindings
 -- require("which-key").add(kube_utils_mappings)
 
-vim.keymap.set("v", "<LeftRelease>", '"+ygv', {
-  silent = true,
-  desc = "Copy mouse selection to clipboard",
-})
+-- Copy to OS clipboard
+-- vim.keymap.set({ "n", "x" }, "y", '"+y', { desc = "Yank to system clipboard" })
+-- Paste from OS clipboard
+-- vim.keymap.set({ "n", "x" }, "p", '"+p')
+-- vim.keymap.set({ "n", "x" }, "P", '"+P')
+-- vim.keymap.set({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from system clipboard" })
+-- vim.keymap.set({ "n", "x" }, "<leader>P", '"+P', { desc = "Paste before from system clipboard" })
+
+-- yy      → macOS clipboard
+-- yw      → macOS clipboard
+-- yap     → macOS clipboard
+-- use P to paste from " registry
+-- dd      → only registry Neovim "
+-- dw      → only registry Neovim "
+-- caw     → only registry Neovim "
+-- x       → only registry Neovim "
+
+-- "       unnamed register
+-- 0       ostatni yank (yy, yw, etc.) "0p or "0P to paste
+-- 1-9     historia usuniętego/zmienionego tekstu
+-- a-z     nazwane rejestry użytkownika
+-- +       systemowy clipboard
+-- *       selection/system clipboard
+-- _       black-hole register
+-- then "ayy copy to a, "ap paste from a, "aP paste before from a
