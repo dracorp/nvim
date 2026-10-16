@@ -1,85 +1,52 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+---@diagnostic disable: undefined-global
+local opts = { silent = true, noremap = true }
 local map = vim.keymap.set
+local wk = require("which-key")
 
-map("n", "<S-Left>", "<C-w>h", { desc = "Go to left window" })
-map("n", "<S-Down>", "<C-w>j", { desc = "Go to lower window" })
-map("n", "<S-Up>", "<C-w>k", { desc = "Go to upper window" })
-map("n", "<S-Right>", "<C-w>l", { desc = "Go to right window" })
+-- Window navigation using Shift + Arrow keys
+map("n", "<S-Left>", "<C-w>h", { desc = "Go to left window" }, opts)
+map("n", "<S-Down>", "<C-w>j", { desc = "Go to lower window" }, opts)
+map("n", "<S-Up>", "<C-w>k", { desc = "Go to upper window" }, opts)
+map("n", "<S-Right>", "<C-w>l", { desc = "Go to right window" }, opts)
 
-local keymap = vim.keymap
-
----@class MyPluginOpts
----@field noremap boolean
----@field silent boolean
----@type MyPluginOpts
-local opts = { noremap = true, silent = true }
-
--- Language profile
-keymap.set("n", "<leader>P", "<cmd>Profile<cr>", { desc = "Manage language profile" })
-
--- Moving text
 -- Move text up and down
-keymap.set("n", "<C-Down>", "<Esc>:m .+1<CR>", opts)
-keymap.set("n", "<C-Up>", "<Esc>:m .-2<CR>", opts)
-keymap.set("v", "<C-Down>", ":m .+1<CR>", opts)
-keymap.set("v", "<C-Up>", ":m .-2<CR>", opts)
-keymap.set("x", "<C-Down>", ":move '>+1<CR>gv-gv", opts)
-keymap.set("x", "<C-Up>", ":move '<-2<CR>gv-gv", opts)
+map("n", "<A-Down>", "<Esc>:m .+1<CR>", { desc = "Move text down" }, opts)
+map("n", "<A-Up>", "<Esc>:m .-2<CR>", { desc = "Move text up" }, opts)
+map("v", "<A-Down>", ":m .+1<CR>", { desc = "Move text down" }, opts)
+map("v", "<A-Up>", ":m .-2<CR>", { desc = "Move text up" }, opts)
+map("x", "<A-Down>", ":move '>+1<CR>gv-gv", { desc = "Move text down" }, opts)
+map("x", "<A-Up>", ":move '<-2<CR>gv-gv", { desc = "Move text up" }, opts)
 
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
+map("n", "<C-j>", function()
   vim.diagnostic.jump({ count = 1, float = true })
-end, opts)
-
--- Own UI menu, @see ../plugins/which-key.lua
+end, { desc = "Jump to next diagnostic" }, opts)
+-- Create Dashboard command
 vim.api.nvim_create_user_command("Dashboard", function()
   Snacks.dashboard()
 end, { desc = "Open Snacks dashboard" })
-
-vim.keymap.set("n", "<leader>UD", function()
-  Snacks.dashboard()
-end, { desc = "Dashboard" })
-
-vim.keymap.set("n", "<leader>UE", "<cmd>LazyExtras<cr>", { desc = "Lazy Extras" })
-vim.keymap.set("n", "<leader>US", "<cmd>Lazy sync<cr>", { desc = "Lazy Extras" })
-
-vim.keymap.set("n", "<leader>Cs", "<cmd>Copilot status<cr>", { desc = "Copilot status" })
-vim.keymap.set("n", "<leader>Ct", "<cmd>Copilot panel<cr>", { desc = "Copilot panel" })
-vim.keymap.set("n", "<leader>Cm", "<cmd>Copilot model<cr>", { desc = "Copilot model" })
-
-vim.keymap.set("n", "<leader>sp", function()
+vim.api.nvim_create_user_command("ShowHistory", function()
   Snacks.notifier.show_history()
-end, { desc = "Show notifs" })
--- kubernetes
--- ~/.config/nvim/lua/config/keymaps.lua
--- local kube_utils_mappings = {
---   { "<leader>k", group = "Kubernetes" }, -- Main title for all Kubernetes related commands
---   -- Helm Commands
---   { "<leader>kh", group = "Helm" },
---   { "<leader>khT", "<cmd>HelmDryRun<CR>", desc = "Helm DryRun Buffer" },
---   { "<leader>khb", "<cmd>HelmDependencyBuildFromBuffer<CR>", desc = "Helm Dependency Build" },
---   { "<leader>khd", "<cmd>HelmDeployFromBuffer<CR>", desc = "Helm Deploy Buffer to Context" },
---   { "<leader>khr", "<cmd>RemoveDeployment<CR>", desc = "Helm Remove Deployment From Buffer" },
---   { "<leader>kht", "<cmd>HelmTemplateFromBuffer<CR>", desc = "Helm Template From Buffer" },
---   { "<leader>khu", "<cmd>HelmDependencyUpdateFromBuffer<CR>", desc = "Helm Dependency Update" },
---   -- Kubectl Commands
---   { "<leader>kk", group = "Kubectl" },
---   { "<leader>kkC", "<cmd>SelectSplitCRD<CR>", desc = "Download CRD Split" },
---   { "<leader>kkD", "<cmd>DeleteNamespace<CR>", desc = "Kubectl Delete Namespace" },
---   { "<leader>kkK", "<cmd>OpenK9s<CR>", desc = "Open K9s" },
---   { "<leader>kka", "<cmd>KubectlApplyFromBuffer<CR>", desc = "Kubectl Apply From Buffer" },
---   { "<leader>kkc", "<cmd>SelectCRD<CR>", desc = "Download CRD" },
---   { "<leader>kkk", "<cmd>OpenK9sSplit<CR>", desc = "Split View K9s" },
---   { "<leader>kkl", "<cmd>ToggleYamlHelm<CR>", desc = "Toggle YAML/Helm" },
---   -- Logs Commands
---   { "<leader>kl", group = "Logs" },
---   { "<leader>klf", "<cmd>JsonFormatLogs<CR>", desc = "Format JSON" },
---   { "<leader>klv", "<cmd>ViewPodLogs<CR>", desc = "View Pod Logs" },
--- }
--- -- Register the Kube Utils keybindings
--- require("which-key").add(kube_utils_mappings)
+end, { desc = "Show notification history" })
+
+-- Own UI menu, @see ../plugins/which-key.lua
+-- Leader key mappings
+local my_own_menu = {
+  { "<leader>P", "<cmd>Profile<cr>", desc = "Manage language profile", mode = "n" },
+  { "<leader>sp", "<cmd>ShowHistory<cr>", desc = "Show notifs", mode = "n" },
+  { "<leader>U", group = "UI my", icon = "󰙵 ", mode = "n" },
+  { "<leader>UD", "<cmd>Dashboard<cr>", desc = "Show Dashboard", mode = "n" },
+  { "<leader>UE", "<cmd>LazyExtras<cr>", desc = "Lazy Extras", mode = "n" },
+  { "<leader>US", "<cmd>Lazy sync<cr>", desc = "Lazy sync", mode = "n" },
+  { "<leader>C", group = "Copilot", icon = " ", mode = "n" },
+  { "<leader>Cs", "<cmd>Copilot status<cr>", desc = "Copilot status", mode = "n" },
+  { "<leader>Ct", "<cmd>Copilot panel<cr>", desc = "Copilot panel", mode = "n" },
+  { "<leader>Cm", "<cmd>Copilot model<cr>", desc = "Copilot model", mode = "n" },
+}
+wk.add(my_own_menu)
 
 -- Copy to OS clipboard
 -- vim.keymap.set({ "n", "x" }, "y", '"+y', { desc = "Yank to system clipboard" })

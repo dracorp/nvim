@@ -1,9 +1,11 @@
 -- :checkhealth snacks
+---@diagnostic disable: undefined-global
 return {
   {
     --- https://github.com/folke/snacks.nvim
     "folke/snacks.nvim",
     opts = {
+      -- Core Snacks feature toggles.
       bigfile = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
@@ -17,17 +19,30 @@ return {
       scroll = { enabled = true },
       animate = { enabled = true },
       dim = { enabled = false },
+      -- Image handling and rendering.
       image = {
         enabled = true,
+        -- force image rendering, iterm2 supports kitty protocol
         force = true,
         math = {
           enabled = false,
         },
       },
+      -- Status column integration.
       statuscolumn = { enabled = true },
+      -- GitHub integration.
       gh = { enabled = true },
+      -- Git integration.
       git = { enabled = true },
+      -- Word navigation and reference helpers.
       words = { enabled = true },
+      -- Global Snacks Explorer settings.
+      explorer = {
+        enabled = true,
+        trash = true, -- Use the system trash when deleting files, eg. ~/.Trash
+        replace_netrw = true, -- Replace netrw with the snacks explorer
+      },
+      -- Dashboard layout and sections.
       dashboard = {
         enabled = true,
         sections = {
@@ -61,7 +76,7 @@ return {
             enabled = function()
               return Snacks.git.get_root() ~= nil
             end,
-            cmd = "git status --short --branch --renames",
+            cmd = "git status --short --branch --renames 2>/dev/null || echo 'not a git repository'",
             height = 5,
             padding = 1,
             ttl = 5 * 60,
@@ -70,8 +85,9 @@ return {
           { section = "startup" },
         },
       },
-      explorer = { enabled = true },
+      -- Picker configuration and source-specific overrides.
       picker = {
+        -- Picker sources.
         sources = {
           gh_issue = {
             -- your gh_issue picker configuration comes here
@@ -81,15 +97,19 @@ return {
             -- your gh_pr picker configuration comes here
             -- or leave it empty to use the default settings
           },
+          -- Snacks Explorer picker settings.
           explorer = {
-            trash = true, -- Use the system trash when deleting files
-            replace_netrw = true, -- Replace netrw with the snacks explorer
-            enabled = true,
             hidden = true,
+            follow_file = true,
             auto_close = false,
+            diagnostics = true,
+            -- Keymaps inside the explorer list window.
             win = {
+              -- Result list keymaps.
               list = {
                 keys = {
+                  ["<Left>"] = "explorer_close",
+                  ["<Right>"] = "confirm",
                   ["-"] = "edit_split",
                   ["|"] = "edit_vsplit",
                   ["<CR>"] = "confirm",
@@ -115,15 +135,19 @@ return {
             },
           },
           -- https://www.reddit.com/r/neovim/comments/1mvlp86/lazyvim_snacks_picker_how_to_turn_on_preview/
+          -- Notification preview window tweaks.
           notifications = {
             win = {
+              -- Window options for the preview pane.
               wo = {
                 wrap = true,
               },
             },
           },
         },
+        -- Picker window keymaps and options.
         win = {
+          -- Search input keymaps.
           input = {
             keys = {
               ["<PageUp>"] = "list_scroll_up",
@@ -132,6 +156,7 @@ return {
               ["<End>"] = "list_bottom",
             },
           },
+          -- Result list keymaps.
           list = {
             keys = {
               ["<PageUp>"] = "list_scroll_up",
@@ -139,6 +164,10 @@ return {
               ["<Home>"] = "list_top",
               ["<End>"] = "list_bottom",
             },
+          },
+          -- Shared window options for the picker UI.
+          wo = {
+            wrap = true,
           },
         },
       },
