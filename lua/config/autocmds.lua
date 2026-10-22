@@ -42,6 +42,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("QuitPre", {
   callback = function()
     local snacks_windows = {}
+    local aerial_windows = {}
     local floating_windows = {}
     local windows = vim.api.nvim_list_wins()
 
@@ -51,6 +52,8 @@ vim.api.nvim_create_autocmd("QuitPre", {
 
       if ft:match("^snacks_") then
         table.insert(snacks_windows, win)
+      elseif ft == "aerial" then
+        table.insert(aerial_windows, win)
       elseif vim.api.nvim_win_get_config(win).relative ~= "" then
         table.insert(floating_windows, win)
       end
@@ -58,8 +61,11 @@ vim.api.nvim_create_autocmd("QuitPre", {
 
     -- Jeżeli zamykane okno jest ostatnim normalnym oknem,
     -- zamknij również okna Snacks.
-    if #windows - #floating_windows - #snacks_windows == 1 then
+    if #windows - #floating_windows - #snacks_windows - #aerial_windows == 1 then
       for _, win in ipairs(snacks_windows) do
+        pcall(vim.api.nvim_win_close, win, true)
+      end
+      for _, win in ipairs(aerial_windows) do
         pcall(vim.api.nvim_win_close, win, true)
       end
     end
