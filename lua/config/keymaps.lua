@@ -41,6 +41,7 @@ local my_own_menu = {
   { "<leader>UD", "<cmd>Dashboard<cr>", desc = "Show Dashboard", mode = "n" },
   { "<leader>UE", "<cmd>LazyExtras<cr>", desc = "Lazy Extras", mode = "n" },
   { "<leader>US", "<cmd>Lazy sync<cr>", desc = "Lazy sync", mode = "n" },
+  { "<leader>UM", "<cmd>Mason<cr>", desc = "Mason", mode = "n" },
   { "<leader>C", group = "Copilot", icon = " ", mode = "n" },
   { "<leader>Cs", "<cmd>Copilot status<cr>", desc = "Copilot status", mode = "n" },
   { "<leader>Ct", "<cmd>Copilot panel<cr>", desc = "Copilot panel", mode = "n" },
