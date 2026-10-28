@@ -1,0 +1,18 @@
+return {
+  "simchri/CopilotChat.nvim",
+  branch = "ghec",
+  dependencies = {
+    { "zbirenbaum/copilot.lua" },
+    { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+  },
+  build = "make tiktoken", -- Only on MacOS or Linux
+  opts = function(_, opts)
+    -- ...
+    opts.github_instance_url = "lhg.ghe.com"
+    opts.github_instance_api_url = "api.lhg.ghe.com"
+    opts.providers = {}
+    opts.model = "gpt-5-luna"
+    -- ...
+    return opts
+  end,
+}

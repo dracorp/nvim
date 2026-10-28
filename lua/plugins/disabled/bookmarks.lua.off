@@ -1,0 +1,27 @@
+return {
+  {
+    --- https://github.com/MattesGroeger/vim-bookmarks
+    "MattesGroeger/vim-bookmarks",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>mm", "<Plug>BookmarkToggle", desc = "Toggle bookmark" },
+      { "<leader>mi", "<Plug>BookmarkAnnotate", desc = "Annotate bookmark" },
+      { "<leader>ma", "<Plug>BookmarkShowAll", desc = "Show all bookmarks" },
+      { "<leader>mj", "<Plug>BookmarkNext", desc = "Next bookmark" },
+      { "<leader>mk", "<Plug>BookmarkPrev", desc = "Previous bookmark" },
+      { "<leader>mc", "<Plug>BookmarkClear", desc = "Clear bookmark" },
+      { "<leader>mx", "<Plug>BookmarkClearAll", desc = "Clear all bookmarks" },
+      { "<leader>mkk", "<Plug>BookmarkMoveUp", desc = "Move bookmark up" },
+      { "<leader>mjj", "<Plug>BookmarkMoveDown", desc = "Move bookmark down" },
+      { "<leader>mg", "<Plug>BookmarkMoveToLine", desc = "Move bookmark to line" },
+    },
+  },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      spec = {
+        { "<leader>m", group = "Marks" },
+      },
+    },
+  },
+}
