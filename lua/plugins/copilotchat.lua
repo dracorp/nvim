@@ -1,5 +1,6 @@
 return {
   {
+    --- https://github.com/CopilotC-Nvim/CopilotChat.nvim
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = function(_, opts)
       -- opts.model = "gpt-5-luna"

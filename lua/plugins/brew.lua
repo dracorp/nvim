@@ -3,6 +3,7 @@
 return {
   {
     --- https://github.com/xu-cheng/brew.vim
+    --- 🍺 Vim Syntax for Homebrew formulae
     "xu-cheng/brew.vim",
     -- ft = { "brew" }, -- Optional: Load on filetype 'brew' (Brewfile)
     init = function()
@@ -23,6 +24,8 @@ return {
     end,
   },
   {
+    --- https://github.com/stevearc/aerial.nvim
+    --- Neovim plugin for a code outline window
     "stevearc/aerial.nvim",
     opts = function(_, opts)
       local default_backends = opts.backends or { "treesitter", "lsp", "markdown", "asciidoc", "man" }

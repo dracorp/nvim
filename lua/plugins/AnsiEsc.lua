@@ -1,6 +1,7 @@
 return {
   {
     --- https://github.com/powerman/vim-plugin-AnsiEsc
+    --- ansi escape sequences concealed, but highlighted as specified (conceal)
     "powerman/vim-plugin-AnsiEsc",
     lazy = false,
 
