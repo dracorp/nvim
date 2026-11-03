@@ -1,5 +1,6 @@
 return {
   --- https://github.com/saghen/blink.cmp
+  --- Performant, batteries-included completion plugin for Neovim
   "saghen/blink.cmp",
   dependencies = { "fang2hou/blink-copilot" },
   opts = {
