@@ -47,7 +47,7 @@ announce "Updating Neovim: Lazy packages"
 nvim --headless "+Lazy! sync" +qa
 
 announce "Updating Neovim: Mason packages"
-nvim --headless "+MasonToolsUpdate" +qa
+nvim --headless "+MasonToolsUpdateSync" +qa
 
 announce "Updating Neovim: Treesitter packages"
 nvim --headless \
