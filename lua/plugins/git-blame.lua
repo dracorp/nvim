@@ -1,6 +1,7 @@
 return {
   {
     --- https://github.com/f-person/git-blame.nvim
+    --- Git Blame plugin for Neovim written in Lua
     "f-person/git-blame.nvim",
     opts = {
       enabled = false,

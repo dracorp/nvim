@@ -1,6 +1,7 @@
 return {
   {
     --- https://github.com/vimwiki/vimwiki
+    --- Personal Wiki for Vim
     "vimwiki/vimwiki",
     init = function()
       vim.g.vimwiki_list = {

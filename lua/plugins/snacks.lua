@@ -3,6 +3,7 @@
 return {
   {
     --- https://github.com/folke/snacks.nvim
+    --- 🍿 A collection of QoL plugins for Neovim
     "folke/snacks.nvim",
     opts = {
       -- Core Snacks feature toggles.

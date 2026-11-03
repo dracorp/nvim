@@ -1,6 +1,6 @@
 return {
   --- https://github.com/nvim-treesitter/nvim-treesitter
-  -- add more treesitter parsers
+  --- Nvim Treesitter configurations and abstraction layer
   -- {
   --   "nvim-treesitter/nvim-treesitter",
   --   opts = {
@@ -32,7 +32,6 @@ return {
   -- would overwrite `ensure_installed` with the new value.
   -- If you'd rather extend the default config, use the code below instead:
   {
-    --- https://github.com/nvim-treesitter/nvim-treesitter
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       opts.highlight = {

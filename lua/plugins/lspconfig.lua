@@ -1,6 +1,7 @@
 return {
   {
     --- https://github.com/neovim/nvim-lspconfig
+    --- Quickstart configs for Nvim LSP
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {

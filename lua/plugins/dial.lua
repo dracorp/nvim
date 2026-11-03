@@ -1,5 +1,6 @@
 return {
   --- https://github.com/monaqa/dial.nvim
+  --- enhanced increment/decrement plugin for Neovim.
   "monaqa/dial.nvim",
   opts = function()
     -- you can modify opts however you want
