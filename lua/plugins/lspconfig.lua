@@ -11,7 +11,15 @@ return {
       servers = {
         bashls = {},
         basedpyright = {},
-        yamlls = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              format = {
+                enable = false,
+              },
+            },
+          },
+        },
         ansiblels = {},
         azure_pipelines_ls = {},
         gh_actions_ls = {},

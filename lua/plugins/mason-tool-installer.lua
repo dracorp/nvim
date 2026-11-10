@@ -22,6 +22,7 @@ return {
 
         -- YAML / Docker Compose / Azure DevOps
         "yaml-language-server",
+        "yamlfix",
 
         -- Dockerfile
         "hadolint",
@@ -44,6 +45,7 @@ return {
 
         -- Makefile
         "checkmake",
+        "mbake",
       },
       auto_update = true,
       run_on_start = true,

@@ -20,6 +20,7 @@ return {
       scroll = { enabled = true },
       animate = { enabled = true },
       dim = { enabled = false },
+      terminal = { enabled = true },
       -- Image handling and rendering.
       image = {
         enabled = true,

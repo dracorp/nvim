@@ -66,10 +66,9 @@ vim.filetype.add({
 
 vim.o.compatible = false
 
-local indent = 4
-vim.o.tabstop = indent
-vim.o.softtabstop = indent
-vim.o.shiftwidth = indent
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 vim.o.expandtab = true
 -- vim.o.number = false
 -- vim.o.relativenumber = false

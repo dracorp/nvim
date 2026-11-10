@@ -39,6 +39,7 @@ return {
       }
       opts.indent = {
         enable = true,
+        disable = "yaml",
       }
       vim.list_extend(opts.ensure_installed, {
         "bash",
